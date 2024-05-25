@@ -34,5 +34,4 @@ CREATE TABLE CVProfile(
 	Number INT,
 
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
-	
 );

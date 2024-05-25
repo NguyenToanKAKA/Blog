@@ -30,14 +30,14 @@
                     var imgData = canvas.toDataURL('image/png');
                     var { jsPDF } = window.jspdf;
                     var pdf = new jsPDF();
-                    pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth()+50, pdf.internal.pageSize.getHeight(), null, 'FAST');
-                    
+                  pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight(), null, 'FAST');
+                  
                     // L?u PDF vào máy ng??i dùng v?i tên t?p là "cv.pdf"
                     pdf.save("cv.pdf");
                 }
             });
         }
-        
+
     </script>
      
     <style>
@@ -170,9 +170,7 @@
                                 <li class="nav-item" role="presentation">
                                     <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview-tab-pane" type="button" role="tab" aria-controls="overview-tab-pane" aria-selected="true">Overview</button>
                                 </li>
-                                <li class="nav-item" role="presentation">
-                                    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Profile</button>
-                                </li>
+                               
                             </ul>
                             <div class="tab-content pt-4" id="profileTabContent">
                                 <div class="tab-pane fade show active" id="overview-tab-pane" role="tabpanel" aria-labelledby="overview-tab" tabindex="0">
@@ -232,130 +230,29 @@
                                                  </div>
                                             </div>
                                         </div>-->
-                                        <div class="col-5 col-md-3 bg-light border-bottom border-white border-3">
-                                            <div class="p-2">File PDF</div>
+
+                                         <div class="col-5 col-md-3 bg-light border-bottom border-white border-3">
+                                            <div class="p-2">Link pdf</div>
                                         </div>
                                         <div class="col-7 col-md-9 bg-light border-start border-bottom border-white border-3">
                                             <div class="p-2"><c:out value="${cv.linkPdf}" /></div>
-                                        </div>                                                       
+                                        </div>
                                     </div>
                                                  
-                                       
-
+                                   
                                     
 <!--                                    <div class="container mt-3">
                                         <a href="javascript:void(0);" onclick="savePDF()" class="btn btn-primary" download="cv.pdf">Download CV</a>
-                                    </div>  -->
-                           
-                         
+                                     </div>  -->
+
+
                                     <div class="container mt-3">
                                         <a href="./assets/pdf/<c:out value="${cv.linkPdf}" />" download="filename.pdf" class="btn btn-primary">Download CV</a>                                
-                                    </div>           
+                                    </div>   
+                                                                              
                                 </div>
-                                         
+                                                        
                                 
-                                
-                                                 
-                                                 
-                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                   <form action="CVSeeker" method="POST" class="row gy-3 gy-xxl-4" onsubmit="return validateForm()">
-                                        <div class="col-12">
-<!--                                            <div class="row gy-2">
-                                                <label class="col-12 form-label m-0">CV Image</label>
-                                                <div class="col-12">
-                                                    <img id="avatarImage" src="assets/images/<c:out value="${cv.avatar}" />" class="img-fluid" alt="Avatar">
-                                                </div>
-                                                <div class="col-12">
-                                                    <input type="file" id="fileInput" style="display: none;" name="avatar" value="<c:out value="${cv.avatar}" />">
-                                                    <a href="#!" id="uploadButton" class="d-inline-block bg-primary link-light lh-1 p-2 rounded">
-                                                        <i class="bi bi-upload"></i> Upload
-                                                    </a>
-                                                    
-                                                </div>
-                                            </div>-->
-
-                                            <div class="row gy-2">
-                                               
-                                                <p id="avatarImage"><c:out value="${cv.linkPdf}"/></p>
-                                                <div class="col-12">
-                                                    <input type="file" id="fileInput" style="display: none;" name="linkPdf" value="<c:out value="${cv.avatar}" />">
-                                                    <a href="#!" id="uploadButton" class="d-inline-block bg-primary link-light lh-1 p-2 rounded">
-                                                        <i class="bi bi-upload"></i> Upload
-                                                    </a>
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
-    
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputFirstName" class="form-label">First Name</label>
-                                            <input type="text" name="firstName" class="form-control" id="inputFirstName" value="<c:out value="${user.firstName}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputLastName" class="form-label">Last Name</label>
-                                            <input type="text" name="lastName" class="form-control" id="inputLastName" value="<c:out value="${user.lastName}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputEducation" class="form-label">Education</label>
-                                            <input type="text" name="education" class="form-control" id="inputEducation" value="<c:out value="${cv.education}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputSkills" class="form-label">Skills(Separate by comma)</label>
-                                            <input type="text" name="skills" class="form-control" id="inputSkills" value="<c:out value="${cv.skills}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputPhone" class="form-label">Phone</label>
-                                            <input type="tel" name="phoneNumber" class="form-control" id="inputPhone" value="<c:out value="${user.phoneNumber}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputEmail" class="form-label">Email</label>
-                                            <input type="email" name="email" class="form-control" id="inputEmail" value="<c:out value="${user.email}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputAddress" class="form-label">Address</label>
-                                            <input type="text" name="cityName" class="form-control" id="inputAddress" value="<c:out value="${user.cityName}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputExperience" class="form-label">Experience</label>
-                                            <input type="text" name="experience" class="form-control" id="inputExperience" value="<c:out value="${cv.experience}" />">
-                                        </div>
-                                        <div class="col-12 col-md-6">
-                                            <label for="inputCertification" class="form-label">Certification</label>
-                                            <input type="text" name="certification" class="form-control" id="inputCertification" value="<c:out value="${cv.certification}" />">
-                                        </div>
-                                        <div class="col-12">
-                                            <label for="inputAbout" class="form-label">Description</label>
-                                            <textarea name="description" class="form-control" id="inputAbout"><c:out value="${cv.description}" /></textarea>
-                                        </div>
-                                        
-                                        <!-- Link phân cách b?i | -->
-                                       <div id="yellow-border">
-                                           <br/>
-                                            <div class="col-12 col-md-6 yellow-border">
-                                                <label for="inputExperience" class="form-label">Link Youtube</label>
-                                                <input type="text" name="linkYoutube" class="form-control" id="inputExperience" value="<c:out value="${fn:split(cv.linkUrl, '|')[0]}" />">
-                                            </div>
-                                            <div class="col-12 col-md-6 yellow-border">
-                                                <label for="inputExperience" class="form-label">Link Twitter</label>
-                                                <input type="text" name="linkTwitter" class="form-control" id="inputExperience" value="<c:out value="${fn:split(cv.linkUrl, '|')[2]}" />">
-                                            </div>
-                                            <div class="col-12 col-md-6 yellow-border">
-                                                <label for="inputExperience" class="form-label">Link Facebook</label>
-                                                <input type="text" name="linkFacebook" class="form-control" id="inputExperience" value="<c:out value="${fn:split(cv.linkUrl, '|')[1]}" />">
-                                            </div>
-                                            <div class="col-12 col-md-6 yellow-border">
-                                                <label for="inputExperience" class="form-label">Link Linkedin</label>
-                                                <input type="text" name="linkLinkedin" class="form-control" id="inputExperience" value="<c:out value="${fn:split(cv.linkUrl, '|')[3]}" />">
-                                            </div>
-                                            <br/>
-                                        </div>
-                                        
-                                        
-                                        <div class="col-12">
-                                           <button type="submit" class="btn btn-primary">Save Changes</button>
-                                        </div>
-                                    </form>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -375,77 +272,8 @@
         </div>
     </footer>
 
-              <script>
-                function validateForm() {
-                    var phoneNumber = document.getElementById("inputPhone").value;
-                    var email = document.getElementById("inputEmail").value;
-
-                    // Ki?m tra ?? h?p l? c?a phoneNumber và email
-                    var phoneRegex = /^(\+?\d{2})?[- ]?(\d{3})[- ]?(\d{3})[- ]?(\d{4})$/;
-                    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                    if (!phoneRegex.test(phoneNumber)) {
-                        alert("Phone number invalid");
-                        return false; // Ng?n form submit
-                    }
-
-                    if (!emailRegex.test(email)) {
-                        alert("Email invalid");
-                        return false; // Ng?n form submit
-                    }
-
-                    // N?u phoneNumber và email h?p l?, cho phép form submit
-                    return true;
-                }
-                </script>                              
                                                 
-<!--    <script>
-    document.getElementById('uploadButton').addEventListener('click', function() {
-        document.getElementById('fileInput').click();
-    });
-
-    document.getElementById('fileInput').addEventListener('change', function() {
-        var formData = new FormData();
-        formData.append('file', this.files[0]);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'upload', true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                var fileName = response.fileName;
-                var avatarImage = document.getElementById('avatarImage');
-                avatarImage.src = 'assets/images/' + fileName; // Thay ??i src c?a hình ?nh avatarImage
-                console.log(fileName);
-            }
-        };
-        xhr.send(formData);
-    });
-</script>-->
-
- <script>
-    document.getElementById('uploadButton').addEventListener('click', function() {
-        document.getElementById('fileInput').click();
-    });
-
-    document.getElementById('fileInput').addEventListener('change', function() {
-        var formData = new FormData();
-        formData.append('file', this.files[0]);
-
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'upload', true);
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                var fileName = response.fileName;
-                var avatarImage = document.getElementById('avatarImage');
-                avatarImage.innerText =  fileName; // Thay ??i src c?a hình ?nh avatarImage
-                console.log(fileName);
-            }
-        };
-        xhr.send(formData);
-    });
-</script>
+ 
 
     <!-- Bootstrap core JavaScript -->
     <script src="https://unpkg.com/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>

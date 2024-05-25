@@ -16,16 +16,20 @@ public class test {
 
     public static void main(String[] args) {
 
-        JobseekerDAO jd = new JobseekerDAO();
-        User u = new User("Buiii", "Nhan", "nhanbtde170234@fpt.edu.vn", "Congdeptrai.vn?", 2);
-//        jd.insert(u);
-//        User u1 = new User("Truong", "van", "n@gmail.com","passs", 2, "","","da nang","",);
+//        JobseekerDAO jd = new JobseekerDAO();
+//        User u = new User("Buiii", "Nhan", "nhanbtde170234@fpt.edu.vn", "Congdeptrai.vn?", 2);
+////        jd.insert(u);
+////        User u1 = new User("Truong", "van", "n@gmail.com","passs", 2, "","","da nang","",);
+//
+////        jd.insert(u1);
+//
+//        Random random = new Random();
+//
+////        System.out.println(jd.update(u));
 
-//        jd.insert(u1);
-
-        Random random = new Random();
-
-//        System.out.println(jd.update(u));
+        CVDAO cvDao = new CVDAO();
+        System.out.println(cvDao.findByEmail("tuan@gmail.com").getCVId());
+    
     }
 
 }

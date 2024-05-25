@@ -28,6 +28,24 @@
         <servlet-name>ChangePassEmployer</servlet-name>
         <servlet-class>controller.ChangePassEmployer</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <servlet-class>controller.FileUploadServlet</servlet-class>
+        <multipart-config>
+            <location>/tmp</location>
+            <max-file-size>20848820</max-file-size>
+            <max-request-size>418018841</max-request-size>
+            <file-size-threshold>1048576</file-size-threshold>
+        </multipart-config>
+    </servlet>
+    <servlet>
+        <servlet-name>CVJobSeekerServlet</servlet-name>
+        <servlet-class>controller.CVJobSeekerServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>EmployerDetailCVServlet</servlet-name>
+        <servlet-class>controller.EmployerDetailCVServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterJobseekerServlet</servlet-name>
         <url-pattern>/registerjobseeker</url-pattern>
@@ -63,5 +81,17 @@
     <servlet-mapping>
         <servlet-name>ChangePassEmployer</servlet-name>
         <url-pattern>/changepassemployer</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FileUploadServlet</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CVJobSeekerServlet</servlet-name>
+        <url-pattern>/CVSeeker</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>EmployerDetailCVServlet</servlet-name>
+        <url-pattern>/detailCV</url-pattern>
     </servlet-mapping>
 </web-app>
