@@ -249,7 +249,7 @@
                            
                          
                                     <div class="container mt-3">
-                                        <a href="./assets/pdf/<c:out value="${cv.linkPdf}" />" download="filename.pdf" class="btn btn-primary">Download CV</a>                                
+                                        <a href="./assets/pdf/<c:out value="${cv.linkPdf}" />" download="" class="btn btn-primary">Download CV</a>                                
                                     </div>           
                                 </div>
                                          

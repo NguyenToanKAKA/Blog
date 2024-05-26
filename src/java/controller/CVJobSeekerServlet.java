@@ -85,7 +85,7 @@ public class CVJobSeekerServlet extends HttpServlet {
                     // Chuyển hướng đến trang JSP
                     request.getRequestDispatcher("CVProfile.jsp").forward(request, response);
                 } else {
-                    response.getWriter().println("Không tìm thấy CVProfile cho email: " + cuser);
+                    response.sendRedirect("createCV");
                 }
             }
             //Nếu role không phải jobseeker ,chuyển trang login

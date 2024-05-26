@@ -46,6 +46,10 @@
         <servlet-name>EmployerDetailCVServlet</servlet-name>
         <servlet-class>controller.EmployerDetailCVServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CreateCVServlet</servlet-name>
+        <servlet-class>controller.CreateCVServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterJobseekerServlet</servlet-name>
         <url-pattern>/registerjobseeker</url-pattern>
@@ -93,5 +97,9 @@
     <servlet-mapping>
         <servlet-name>EmployerDetailCVServlet</servlet-name>
         <url-pattern>/detailCV</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CreateCVServlet</servlet-name>
+        <url-pattern>/createCV</url-pattern>
     </servlet-mapping>
 </web-app>

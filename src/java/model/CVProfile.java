@@ -12,6 +12,20 @@ public class CVProfile {
     private int CVId, UserID, Number;
     private String Skills, Experience, Description, Education, Certification, LinkUrl, Avatar,LinkPdf;
 
+    public CVProfile(int UserID, String Skills, String Experience, String Description, String Education, String Certification, String LinkUrl, String LinkPdf) {
+        this.UserID = UserID;
+        this.Skills = Skills;
+        this.Experience = Experience;
+        this.Description = Description;
+        this.Education = Education;
+        this.Certification = Certification;
+        this.LinkUrl = LinkUrl;
+        this.LinkPdf = LinkPdf;
+    }
+
+    
+    
+    
     public CVProfile(int CVId, int UserID, int Number, String Skills, String Experience, String Description, String Education, String Certification, String LinkUrl, String Avatar,String LinkPdf) {
         this.CVId = CVId;
         this.UserID = UserID;

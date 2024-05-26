@@ -69,8 +69,29 @@ public class CVDAO extends DBContext implements BaseDAO<CVProfile> {
 
     @Override
     public boolean insert(CVProfile newObject) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+        String sql = "insert into CVProfile(UserID, Skills, Experience, Description, Education,Certifications,LinkUrl, LinkPdf)\n"
+                + "Values (?,?,?,?,?,?,?,?)";
+        PreparedStatement ps;
+        try {
+            ps = getConnection().prepareStatement(sql);
+            ps.setInt(1, newObject.getUserID());
+            ps.setString(2, newObject.getSkills());
+            ps.setString(3, newObject.getExperience());
+            ps.setString(4, newObject.getDescription());
+            ps.setString(5, newObject.getEducation());
+            ps.setString(6, newObject.getCertification());
+            ps.setString(7, newObject.getLinkUrl());
+            ps.setString(8, newObject.getLinkPdf());
+    
+            
+            int rowAffect = ps.executeUpdate();
+            if (rowAffect > 0) {
+                return true;
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(CVDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;    }
 
     @Override
     public boolean update(CVProfile newObject) {
