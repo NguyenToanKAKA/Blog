@@ -1,28 +1,120 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
 
-        <meta charset="utf-8">
+        <!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <!-- Favicon-->
+        <link rel="shortcut icon" href="img/fav.png">
+        <!-- Author Meta -->
+        <meta name="author" content="codepixer">
+        <!-- Meta Description -->
         <meta name="description" content="">
-        <meta name="author" content="">
+        <!-- Meta Keyword -->
+        <meta name="keywords" content="">
+        <!-- meta character set -->
+        <meta charset="UTF-8">
+        <!-- Site Title -->
+        <title>Job Listing</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+        <!--
+            CSS
+            ============================================= -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/main.css">
+        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+        <link rel="stylesheet"
+              href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="assets/images/favicon.ico">
-                <link rel="stylesheet" href="assets/css/button.css">
-
-
+        <link rel="stylesheet" href="assets/css/icontop.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
 
-        <title>PHPJabbers.com | Free Job Agency Website Template</title>
 
-        <!-- Bootstrap core CSS -->
-        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Additional CSS Files -->
-        <link rel="stylesheet" href="assets/css/fontawesome.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <link rel="stylesheet" href="assets/css/owl.css">
 
+        <link rel="stylesheet" href="assets/css/button.css">
+
+        <style>
+            .report-options {
+                display: none;
+                position: absolute;
+                background-color: #ffffff;
+                border: 1px solid #ccc;
+                padding: 10px;
+                z-index: 1;
+            }
+
+            .reply-btn:hover .report-options {
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+            }
+
+            .report-options a {
+                border: 1px solid black;
+                padding: 5px;
+                margin-bottom: 5px;
+            }
+
+            .custom-btn {
+                background-color: red;
+                color: white;
+                padding: 8px 16px;
+                border: 2px solid red;
+                border-radius: 20px;
+                text-decoration: none;
+                cursor: pointer;
+                transition: all 0.3s ease;
+            }
+
+            .custom-btn:hover {
+                background-color: transparent;
+                color: red;
+            }
+
+            .bottom-meta .list-inline-item a {
+                font-size: 16px;
+            }
+
+            .bottom-meta .list-inline-item a span {
+                font-size: 20px;
+                margin-right: 5px;
+            }
+
+            .thumb {
+                position: relative;
+                text-align: center; /* Center align the button under the image */
+            }
+
+            .thumb img {
+                display: block;
+                margin: 0 auto;
+            }
+
+            .report-button {
+                display: block;
+                margin: 10px auto 0 auto; /* 10px margin above the button */
+                background-color: black;
+                color: white;
+                padding: 5px 10px;
+                border: none;
+                cursor: pointer;
+                width: 60px;
+                text-align: center;
+
+            }
+
+            .report-button:hover {
+                background-color: darkred;
+            }
+        </style>
     </head>
 
     <body>
@@ -37,49 +129,7 @@
         </div>  
         <!-- ***** Preloader End ***** -->
 
-        <!-- Header -->
-        <header class="">
-            <nav class="navbar navbar-expand-lg">
-                <div class="container">
-                    <a style="width: 55px;height: 55px;display: inline-block" class="navbar-brand" href="index.jsp">
-                        <figure style="width: 100%;height: 100%;margin-right: -30px;">
-                            <img style="height: 100%;width: 100%;object-fit: cover;" src="./assets/images/easyjobb.png" alt="alt"/>
-                        </figure>
-
-                    </a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarResponsive">
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="index.jsp">Home
-                                    <span class="sr-only">(current)</span>
-                                </a>
-                            </li> 
-
-                            <li class="nav-item"><a class="nav-link" href="jobs.jsp">Jobs</a></li>
-
-                            <li class="nav-item"><a class="nav-link" href="about-us.jsp">About us</a></li>
-
-                            <li class="nav-item active"><a class="nav-link" href="blog.jsp">Blog</a></li>
-
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
-
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="team.jsp">Team</a>
-                                    <a class="dropdown-item" href="testimonials.jsp">Testimonials</a>
-                                    <a class="dropdown-item" href="terms.jsp">Terms</a>
-                                </div>
-                            </li>
-
-                            <li class="nav-item"><a class="nav-link" href="contact.jsp">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </header>
+      
 
         <!-- Page Content -->
         <div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
@@ -87,197 +137,219 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-content">
-                            <h4><i class="fa fa-user"></i>John Doe  &nbsp;&nbsp;&nbsp;&nbsp;  <i class="fa fa-calendar"></i> 12/06/2020 10:30   &nbsp;&nbsp;&nbsp;&nbsp; <i class="fa fa-eye"></i> 114</h4>
-                            <h2>Lorem ipsum dolor sit amet, consectetur adipisicing</h2>
+
+                            <h2>Blog ${blog.title}</h2>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="products">
+        <!-- Start blog-posts Area -->
+        <section class="blog-posts-area section-gap">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-heading">
-                            <h2>Lorem ipsum dolor sit amet, consectetur.</h2>
-                        </div>
-                    </div>
+                    <div class="col-lg-8 post-list blog-post-list">
+                        <div class="single-post">
+                            <img class="img-fluid" src="assets/blog/${blog.image}" alt="" style="width: 690px; height: 294px;">
 
-                    <div class="col-md-8">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat, sed. Ex, id autem cum assumenda, quisquam cupiditate amet dolorem atque ipsam pariatur sequi voluptatem est nesciunt eum, aspernatur, tenetur rem. <br>
+                            <a href="#">
+                                <h1>
+                                    ${blog.title}
+                                </h1>
+                            </a>
+                            <div class="content-wrap">
+                                <p style="text-align: justify;">
+                                    ${blog.content}
 
-                            <br>
+                                </p>
 
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequatur, magnam. Dolorum vitae a vel quisquam. Fuga quia suscipit id veritatis sint earum impedit corporis quidem eum consectetur ipsam ex sequi ad, distinctio enim tenetur eveniet eligendi. Laborum, sapiente, magnam.</p>
-
-                        <br>
-
-                        <h5>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, modi.</h5>
-
-                        <br>
-
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam officia in adipisci. Corporis rem beatae cupiditate neque consequuntur necessitatibus expedita laudantium temporibus quam ex quidem, aut non blanditiis soluta deserunt dolores mollitia repudiandae voluptatibus perspiciatis dolor quos distinctio! Atque, magnam. <br>
-
-                            <br>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt dolore ducimus, ad itaque reprehenderit repellat dignissimos, qui velit dolores voluptas.</p>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="left-content">
-                            <h4>Lorem ipsum dolor sit amet.</h4>
-
-                            <br>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur.<br><br>Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, minus?</p>
-                        </div>
-                    </div>
-                </div>
-
-                <br>
-
-                <div>
-                    <img src="assets/images/blog-image-fullscren-1-1920x700.jpg" class="img-fluid" alt="">
-                </div>
-            </div>
-        </div>
-
-        <div class="send-message">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-heading">
-                            <h2>Leave a Comment</h2>
-                        </div>
-                    </div>
-                    <div class="col-md-8">
-                        <div class="contact-form">
-                            <form id="contact" action="" method="post">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <fieldset>
-                                            <input name="name" type="text" class="form-control" id="name" placeholder="Full Name" required="">
-                                        </fieldset>
+                            </div>
+                            <div class="bottom-meta">
+                                <div class="user-details row align-items-center" style="margin-top: 30px">
+                                    <div class="comment-wrap col-lg-12" >
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><a href="${pageContext.request.contextPath}/likeBlogs?uid=${sessionScope.account.idUser}&&bid=${blog.blogId}"><span class="lnr lnr-heart"></span> ${blog.nLike}
+                                                    likes</a></li>
+                                            <li class="list-inline-item"><a href="#"><span class="lnr lnr-bubble"></span> ${blog.nCmt}
+                                                    Comments</a></li>
+                                            <li class="list-inline-item"><a href="#"><span class="lnr lnr-history"></span>
+                                                    ${blog.date}</a></li>
+                                        </ul>
                                     </div>
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <fieldset>
-                                            <input name="email" type="text" class="form-control" id="email" placeholder="E-Mail Address" required="">
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your Message" required=""></textarea>
-                                        </fieldset>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <fieldset>
-                                            <button type="submit" id="form-submit" class="filled-button">Submit</button>
-                                        </fieldset>
+
+                                </div>
+                            </div>
+
+                            <!-- <section class="nav-area pt-50 pb-100">
+                                <div class="container">
+                                    <div class="row justify-content-between">
+                                        <div class="col-sm-6 nav-left justify-content-start d-flex">
+                                            <div class="thumb">
+                                                <img src="prev.jpg" alt="" style="width: 80px; height: 80px;">
+                                            </div>
+                                            <div class="post-details">
+                                                <p>Prev Post</p>
+                                                <h4 class="text-uppercase"><a href="#" style="width: 150px; height: 150px">Cartridge Is Better Than Ever
+                                                        A Discount Toner</a></h4>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 nav-right justify-content-end d-flex">
+                                            <div class="post-details">
+                                                <p>Next Post</p>
+                                                <h4 class="text-uppercase" ><a href="#" style="width: 150px; height: 150px;">Cartridge Is Better Than Ever
+                                                        A Discount Toner</a></h4>
+                                            </div>
+                                            <div class="thumb">
+                                                <img src="next.jpg" alt="" style="width: 80px; height: 80px;">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </form>
+                            </section> -->
+
+                            <!-- End nav Area -->
+
+                            <!-- Start comment-sec Area -->
+                            <section class="comment-sec-area pt-80 pb-80">
+                                <div class="container">
+                                    <div class="row flex-column">
+                                        <h5 class="text-uppercase pb-80"><span class="lnr lnr-bubble"></span>   ${blog.nCmt} Comments</h5>
+
+                                        <div class="comment-list">
+                                            <c:forEach items    ="${blog.cmt}" var="c" >
+                                                <div class="single-comment justify-content-between d-flex" style="margin-top:20px">
+                                                    <div class="user justify-content-between d-flex">
+                                                        <div class="thumb">
+                                                            <img src="assets/avatars/${c.avatar}" alt="" style="width: 62px; height: 62px">
+                                                             <a class="report-button" href="reportComment?commentId=${c.commentId}&blogId=${blog.blogId}" onclick="return confirm('Are you sure you want to report this comment?')">Report</a>
+                                                        </div>
+                                                        <div class="desc">
+                                                            <h5><a >${c.uFullName}</a></h5>
+                                                            <p class="date"><i class="zmdi zmdi-calendar-alt"></i>  ${c.date} </p>
+                                                            <p class="comment">
+                                                                ${c.content} 
+
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="reply-btn">
+                                                        <c:if test="${sessionScope.account.idUser eq c.userId}">
+                                                            <a href="#" class="btn-reply text-uppercase">Edit</a>
+                                                        </c:if>
+                                                        <div class="report-options">
+
+                                                            <a href="#2">Update</a>
+                                                            <a href="deleteComment?commentId=${c.commentId}&blogId=${blog.blogId}" onclick="return confirm('Are you sure you want to delete this comment?')">Delete</a>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </c:forEach>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- End comment-sec Area -->
+
+
+                            <!--<a class="primary-btn mt-20 custom-btn" href="#">cai nay tren 3 Comment bam thi hien ra may
+                                comment sau</a>  -->
+
+
+
+
+                            <!-- Start commentform Area -->
+                            <section class="commentform-area pt-80">
+                                <form action="${pageContext.request.contextPath}/commentBlog" method="POST" onsubmit="return validateForm()">
+                                    <div class="container">
+                                        <h5 class="pb-50">Leave a Reply</h5>
+                                        <div class="row flex-row d-flex">
+                                            <input type="hidden" name="bid" value="${blog.blogId}" />
+                                            <input type="hidden" name="uid" value="${sessionScope.account.idUser}" />
+                                            <div class="col-lg-8 col-md-12">
+                                                <textarea id="commentContent" name="content" class="form-control mb-10" placeholder="500 characters remaining"
+                                                          onfocus="this.placeholder = ''" onblur="this.placeholder = '500 characters remaining'"
+                                                          required="" maxlength="500"></textarea>
+
+                                                <input id="submitButton" class="primary-btn mt-20" href="#" value="Comment" type="submit" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                            <!-- End commentform Area -->
+
+
                         </div>
                     </div>
+                    <div class="col-lg-4 sidebar">
 
-                    <div class="col-md-4">
-                        <div class="left-content">
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisic elit. Sed voluptate nihil eumester consectetur similiqu consectetur. Lorem ipsum dolor sit amet, consectetur adipisic elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti.</p>
+                        <div class="single-widget protfolio-widget">
+                            <img src="assets/avatars/${author.avatar}" alt="" style="width: 120px; height: 120px;">
+                            <a href="#">
+                                <h4>${author.firstName} ${author.lastName}</h4>
+                            </a>
 
-                            <br> 
 
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
+                            <p><span class="lnr lnr-map-marker"></span>
+                                ${author.city}
+                            </p>
+                            <p><i class="zmdi zmdi-google-plus-box"></i></span>
+                                ${author.email}
+                            </p>
+
                         </div>
+
+
+
+                        <div class="single-widget recent-posts-widget">
+                            <h4 class="title">Influence Posts</h4>
+                            <div class="blog-list">
+                                <c:forEach var="influencePost" items="${influencePosts}">
+                                    <div class="single-recent-post d-flex flex-row" style="margin-bottom: 10px">
+                                        <div class="recent-thumb">
+                                            <img class="img-fluid" src="assets/blog/${influencePost.image}" alt="" style="width: 80px; height: 80px">
+                                        </div>
+                                        <div class="recent-details">
+                                            <a href="${pageContext.request.contextPath}/blogDetails?bid=${influencePost.blogId}">
+                                                <h4>${influencePost.title}</h4>
+                                            </a>
+                                            <p><span class="lnr lnr-heart"></span> ${influencePost.nLike} likes</p>
+                                        </div>
+                                    </div>
+                                </c:forEach>
+                            </div>
+                        </div>
+
+
+
+
+
+
                     </div>
                 </div>
             </div>
-        </div>
 
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="inner-content">
-                            <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+            <footer>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="inner-content">
+                                <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+            </footer>
 
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Book Now</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="contact-form">
-                            <form action="#" id="contact">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <input type="text" class="form-control" placeholder="Pick-up location" required="">
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <input type="text" class="form-control" placeholder="Return location" required="">
-                                        </fieldset>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <input type="text" class="form-control" placeholder="Pick-up date/time" required="">
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <input type="text" class="form-control" placeholder="Return date/time" required="">
-                                        </fieldset>
-                                    </div>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Enter full name" required="">
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <input type="text" class="form-control" placeholder="Enter email address" required="">
-                                        </fieldset>
-                                    </div>
-
-                                    <div class="col-md-6">
-                                        <fieldset>
-                                            <input type="text" class="form-control" placeholder="Enter phone" required="">
-                                        </fieldset>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                        <button type="button" class="btn btn-primary">Book Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+        </section>
+        <!-- End blog-posts Area -->
 
         <!-- Bootstrap core JavaScript -->
         <script src="vendor/jquery/jquery.min.js"></script>

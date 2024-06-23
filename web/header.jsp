@@ -1,72 +1,28 @@
+<%-- 
+    Document   : header
+    Created on : May 24, 2024, 9:44:29 AM
+    Author     : ASUS
+--%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
     <head>
-
-        <!-- Mobile Specific Meta -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <!-- Favicon-->
-        <link rel="shortcut icon" href="img/fav.png">
-        <!-- Author Meta -->
-        <meta name="author" content="codepixer">
-        <!-- Meta Description -->
-        <meta name="description" content="">
-        <!-- Meta Keyword -->
-        <meta name="keywords" content="">
-        <!-- meta character set -->
-        <meta charset="UTF-8">
-        <!-- Site Title -->
-        <title>Job Listing</title>
-
-        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
-        <!--
-            CSS
-            ============================================= -->
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="assets/css/main.css">
-        <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
-        <link rel="stylesheet"
-              href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
-
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="icon" href="assets/images/favicon.ico">
         <link rel="stylesheet" href="assets/css/icontop.css">
         <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
-
-
-
+        <title>Easyjob | Free Job For Everyone</title>
+        <!-- Bootstrap core CSS -->
+        <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Additional CSS Files -->
+        <link rel="stylesheet" href="assets/css/fontawesome.css">
         <link rel="stylesheet" href="assets/css/style.css">
-
+        <link rel="stylesheet" href="assets/css/owl.css">
         <link rel="stylesheet" href="assets/css/button.css">
-
-        <style>
-            .bottom-meta .list-inline-item a {
-                font-size: 16px;
-            }
-
-            .bottom-meta .list-inline-item a span {
-                font-size: 20px;
-                margin-right: 5px;
-            }
-        </style>
     </head>
-
-
-
     <body>
-
-        <!-- ***** Preloader Start ***** -->
-        <div id="preloader">
-            <div class="jumper">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>  
-        <!-- ***** Preloader End ***** -->
-
         <header class="">
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
@@ -121,6 +77,7 @@
                                             <c:when test="${sessionScope.account != null}">
                                                 <a class="dropdown-item" href="./CVSeeker">CV Profile</a>
                                                 <a class="dropdown-item" href="${pageContext.request.contextPath}/favoriteJobList">List saved job</a>
+                                                <a class="dropdown-item" href="${pageContext.request.contextPath}/managerblog">Manage Blog</a>
                                             </c:when>
                                         </c:choose>    
                                     </div>
@@ -259,168 +216,5 @@
                 </div>
             </nav>
         </header>
-
-        <!-- Page Content -->
-        <div class="page-heading about-heading header-text" style="background-image: url(assets/images/heading-6-1920x500.jpg);">
-
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="text-content">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <h2>Blog</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Start blog-posts Area -->
-        <section class="blog-posts-area section-gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 post-list blog-post-list">
-                        <c:forEach var="b" items="${blogs}" >
-                            <div class="single-post">
-                                <img class="img-fluid" src="assets/blog/${b.image}" alt="" style="width: 690px; height: 294px;">
-
-                                <a href="${pageContext.request.contextPath}/blogDetails?bid=${b.blogId}">
-                                    <h1>
-                                        ${b.title}
-                                    </h1>
-                                </a>
-
-                                <div class="bottom-meta">
-                                    <div class="user-details row align-items-center">
-                                        <div class="comment-wrap col-lg-12">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><a href="#"><span class="lnr lnr-heart"></span> ${b.nLike}
-                                                        likes</a></li>
-                                                <li class="list-inline-item"><a href="#"><span class="lnr lnr-bubble"></span> ${b.nCmt}
-                                                        Comments</a></li>
-                                                <li class="list-inline-item"><a href="#"><span class="lnr lnr-history"></span>
-                                                        ${b.date}</a></li>
-                                            </ul>
-                                        </div>
-
-
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
-                    </div>
-                    <div class="col-lg-4 sidebar">
-                        <div class="single-widget search-widget">
-                        <form class="example" action="${pageContext.request.contextPath}/search" method="GET" style="margin:auto;max-width:300px">
-                            <input type="text" placeholder="Search Posts" name="keyword" value="${keyword}">
-                            <button type="submit" style="background-color: black;"><span class="lnr lnr-magnifier"></span></button>
-                        </form>
-                    </div>
-
-
-
-
-
-
-
-                        <div class="single-widget recent-posts-widget">
-                            <h4 class="title">Influence Posts</h4>
-                            <div class="blog-list">
-                                <c:forEach var="influencePost" items="${influencePosts}">
-                                    <div class="single-recent-post d-flex flex-row" style="margin-bottom: 10px">
-                                        <div class="recent-thumb">
-                                            <img class="img-fluid" src="assets/blog/${influencePost.image}" alt="" style="width: 80px; height: 80px">
-                                        </div>
-                                        <div class="recent-details">
-                                            <a href="${pageContext.request.contextPath}/blogDetails?bid=${influencePost.blogId}">
-                                                <h4>${influencePost.title}</h4>
-                                            </a>
-                                            <p>
-                                                <span class="lnr lnr-heart"></span>
-                                                ${influencePost.nLike} Likes
-                                            </p>
-                                        </div>
-                                    </div>
-                                </c:forEach>
-                            </div>
-                        </div>
-
-
-
-
-
-
-                    </div>
-                </div>
-
-                <!-- Phan trang o day -->
-<!--                <div class="demo" style="margin-top: 100px; padding-left: 50px">
-                    <nav class="pagination-outer" aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li class="page-item <c:if test="${currentPage == 1}">disabled</c:if>">
-                                <a href="${pageContext.request.contextPath}/blogs?page=${currentPage - 1}" class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                </a>
-                            </li>
-                            <c:forEach var="i" begin="1" end="${noOfPages}">
-                                <li class="page-item <c:if test="${currentPage == i}">active</c:if>">
-                                    <a class="page-link" href="${pageContext.request.contextPath}/blogs?page=${i}">${i}</a>
-                                </li>
-                            </c:forEach>
-                            <li class="page-item <c:if test="${currentPage == noOfPages}">disabled</c:if>">
-                                <a href="${pageContext.request.contextPath}/blogs?page=${currentPage + 1}" class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>-->
-
-<div class="col-md-12">
-    <ul class="pages">
-        <c:forEach var="i" begin="1" end="${noOfPages}">
-            <li class="<c:if test='${currentPage == i}'>active</c:if>">
-                <a href="${pageContext.request.contextPath}/blogs?page=${i}">${i}</a>
-            </li>
-        </c:forEach>
-        <!-- Example of a next page link (assuming you have a way to calculate next page) -->
-        <!-- Replace this with your actual logic -->
-        <li>
-            <a href="${pageContext.request.contextPath}/blogs?page=${currentPage + 1}">
-                <i class="fa fa-angle-double-right"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
-            </div>
-            </div>
-        </section>
-        <!-- End blog-posts Area -->
-
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="inner-content">
-                            <p>Copyright © 2020 Company Name - Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-
-
-
-        <!-- Bootstrap core JavaScript -->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-        <!-- Additional Scripts -->
-        <script src="assets/js/custom.js"></script>
-        <script src="assets/js/owl.js"></script>
     </body>
-
 </html>

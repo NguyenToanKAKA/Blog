@@ -9,10 +9,11 @@ package model;
  * @author Admin
  */
 public class CVProfile {
-    private int CVId, UserID, Number;
-    private String Skills, Experience, Description, Education, Certification, LinkUrl, Avatar,LinkPdf;
 
-    public CVProfile(int UserID, String Skills, String Experience, String Description, String Education, String Certification, String LinkUrl, String LinkPdf) {
+    private int CVId, UserID, Number;
+    private String Skills, Experience, Description, Education, Certification, LinkUrl, Avatar, LinkPdf;
+
+    public CVProfile(int UserID, String Skills, String Experience, String Description, String Education, String Certification, String LinkUrl, String Avatar, String LinkPdf) {
         this.UserID = UserID;
         this.Skills = Skills;
         this.Experience = Experience;
@@ -20,13 +21,11 @@ public class CVProfile {
         this.Education = Education;
         this.Certification = Certification;
         this.LinkUrl = LinkUrl;
+        this.Avatar = Avatar;
         this.LinkPdf = LinkPdf;
     }
 
-    
-    
-    
-    public CVProfile(int CVId, int UserID, int Number, String Skills, String Experience, String Description, String Education, String Certification, String LinkUrl, String Avatar,String LinkPdf) {
+    public CVProfile(int CVId, int UserID, int Number, String Skills, String Experience, String Description, String Education, String Certification, String LinkUrl, String Avatar, String LinkPdf) {
         this.CVId = CVId;
         this.UserID = UserID;
         this.Number = Number;
@@ -127,6 +126,10 @@ public class CVProfile {
     public void setAvatar(String Avatar) {
         this.Avatar = Avatar;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return "CVProfile{" + "CVId=" + CVId + ", UserID=" + UserID + ", Number=" + Number + ", Skills=" + Skills + ", Experience=" + Experience + ", Description=" + Description + ", Education=" + Education + ", Certification=" + Certification + ", LinkUrl=" + LinkUrl + ", Avatar=" + Avatar + ", LinkPdf=" + LinkPdf + '}';
+    }
+
 }

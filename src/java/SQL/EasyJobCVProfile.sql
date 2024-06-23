@@ -1,6 +1,6 @@
-create database findjob
+create database findjob2
 Go
-use findjob
+use findjob2
 Go
 
 CREATE TABLE Roles (
@@ -22,6 +22,8 @@ CREATE TABLE Users (
     Status VARCHAR(50),
     FOREIGN KEY (RoleID) REFERENCES Roles(RoleID)
 );
+
+
 CREATE TABLE CVProfile(
     CVId INT IDENTITY(1,1) PRIMARY KEY,
     UserID INT,
@@ -32,6 +34,41 @@ CREATE TABLE CVProfile(
     Certifications VARCHAR(MAX),
 	LinkUrl VARCHAR(MAX),
 	Number INT,
-
+	Avatar VARCHAR(MAX),
+	LinkPdf VARCHAR(MAX),
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
+	
 );
+
+CREATE TABLE Blogs (
+    BlogID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT,
+    Title VARCHAR(200),
+    Content VARCHAR(MAX),
+    PublishDate DATETIME DEFAULT GETDATE(),
+	Image VARCHAR(MAX),
+	Status VARCHAR(MAX),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
+
+CREATE TABLE Comments (
+    CommentID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT,
+    BlogID INT,
+    CommentText VARCHAR(MAX),
+    CommentDate DATETIME DEFAULT GETDATE(),
+	Status VARCHAR(MAX),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (BlogID) REFERENCES Blogs(BlogID)
+);
+
+CREATE TABLE Likes (
+    LikeID INT IDENTITY(1,1) PRIMARY KEY,
+    UserID INT,
+    BlogID INT,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (BlogID) REFERENCES Blogs(BlogID)
+);
+
+
+

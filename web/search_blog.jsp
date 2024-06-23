@@ -108,7 +108,7 @@
 
                                 <li class="nav-item active"><a class="nav-link" href="about-us.jsp">About us</a></li>
 
-                                <li class="nav-item"><a class="nav-link" href="blogs">Blog</a></li>
+                                <li class="nav-item"><a class="nav-link" href="blog.jsp">Blog</a></li>
 
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
@@ -277,125 +277,63 @@
 
         <!-- Start blog-posts Area -->
         <section class="blog-posts-area section-gap">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 post-list blog-post-list">
-                        <c:forEach var="b" items="${blogs}" >
-                            <div class="single-post">
-                                <img class="img-fluid" src="assets/blog/${b.image}" alt="" style="width: 690px; height: 294px;">
-
-                                <a href="${pageContext.request.contextPath}/blogDetails?bid=${b.blogId}">
-                                    <h1>
-                                        ${b.title}
-                                    </h1>
-                                </a>
-
-                                <div class="bottom-meta">
-                                    <div class="user-details row align-items-center">
-                                        <div class="comment-wrap col-lg-12">
-                                            <ul class="list-inline">
-                                                <li class="list-inline-item"><a href="#"><span class="lnr lnr-heart"></span> ${b.nLike}
-                                                        likes</a></li>
-                                                <li class="list-inline-item"><a href="#"><span class="lnr lnr-bubble"></span> ${b.nCmt}
-                                                        Comments</a></li>
-                                                <li class="list-inline-item"><a href="#"><span class="lnr lnr-history"></span>
-                                                        ${b.date}</a></li>
-                                            </ul>
-                                        </div>
-
-
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 post-list blog-post-list">
+                    <c:forEach var="b" items="${blogs}">
+                        <div class="single-post">
+                            <img class="img-fluid" src="assets/blog/${b.image}" alt="" style="width: 690px; height: 294px;">
+                            <a href="${pageContext.request.contextPath}/blogDetails?bid=${b.blogId}">
+                                <h1>${b.title}</h1>
+                            </a>
+                            <div class="bottom-meta">
+                                <div class="user-details row align-items-center">
+                                    <div class="comment-wrap col-lg-12">
+                                        <ul class="list-inline">
+                                            <li class="list-inline-item"><a href="#"><span class="lnr lnr-heart"></span> ${b.nLike} likes</a></li>
+                                            <li class="list-inline-item"><a href="#"><span class="lnr lnr-bubble"></span> ${b.nCmt} Comments</a></li>
+                                            <li class="list-inline-item"><a href="#"><span class="lnr lnr-history"></span> ${b.date}</a></li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
-                        </c:forEach>
-                    </div>
-                    <div class="col-lg-4 sidebar">
-                        <div class="single-widget search-widget">
+                        </div>
+                    </c:forEach>
+                </div>
+                <div class="col-lg-4 sidebar">
+                    <div class="single-widget search-widget">
                         <form class="example" action="${pageContext.request.contextPath}/search" method="GET" style="margin:auto;max-width:300px">
                             <input type="text" placeholder="Search Posts" name="keyword" value="${keyword}">
                             <button type="submit" style="background-color: black;"><span class="lnr lnr-magnifier"></span></button>
                         </form>
                     </div>
 
-
-
-
-
-
-
-                        <div class="single-widget recent-posts-widget">
-                            <h4 class="title">Influence Posts</h4>
-                            <div class="blog-list">
-                                <c:forEach var="influencePost" items="${influencePosts}">
-                                    <div class="single-recent-post d-flex flex-row" style="margin-bottom: 10px">
-                                        <div class="recent-thumb">
-                                            <img class="img-fluid" src="assets/blog/${influencePost.image}" alt="" style="width: 80px; height: 80px">
-                                        </div>
-                                        <div class="recent-details">
-                                            <a href="${pageContext.request.contextPath}/blogDetails?bid=${influencePost.blogId}">
-                                                <h4>${influencePost.title}</h4>
-                                            </a>
-                                            <p>
-                                                <span class="lnr lnr-heart"></span>
-                                                ${influencePost.nLike} Likes
-                                            </p>
-                                        </div>
+                    <div class="single-widget recent-posts-widget">
+                        <h4 class="title">Influence Posts</h4>
+                        <div class="blog-list">
+                            <c:forEach var="influencePost" items="${influencePosts}">
+                                <div class="single-recent-post d-flex flex-row" style="margin-bottom: 10px">
+                                    <div class="recent-thumb">
+                                        <img class="img-fluid" src="assets/blog/${influencePost.image}" alt="" style="width: 80px; height: 80px">
                                     </div>
-                                </c:forEach>
-                            </div>
+                                    <div class="recent-details">
+                                        <a href="${pageContext.request.contextPath}/blogDetails?bid=${influencePost.blogId}">
+                                            <h4>${influencePost.title}</h4>
+                                        </a>
+                                        <p>
+                                            <span class="lnr lnr-heart"></span>
+                                            ${influencePost.nLike} Likes
+                                        </p>
+                                    </div>
+                                </div>
+                            </c:forEach>
                         </div>
-
-
-
-
-
-
                     </div>
                 </div>
-
-                <!-- Phan trang o day -->
-<!--                <div class="demo" style="margin-top: 100px; padding-left: 50px">
-                    <nav class="pagination-outer" aria-label="Page navigation">
-                        <ul class="pagination">
-                            <li class="page-item <c:if test="${currentPage == 1}">disabled</c:if>">
-                                <a href="${pageContext.request.contextPath}/blogs?page=${currentPage - 1}" class="page-link" aria-label="Previous">
-                                    <span aria-hidden="true">«</span>
-                                </a>
-                            </li>
-                            <c:forEach var="i" begin="1" end="${noOfPages}">
-                                <li class="page-item <c:if test="${currentPage == i}">active</c:if>">
-                                    <a class="page-link" href="${pageContext.request.contextPath}/blogs?page=${i}">${i}</a>
-                                </li>
-                            </c:forEach>
-                            <li class="page-item <c:if test="${currentPage == noOfPages}">disabled</c:if>">
-                                <a href="${pageContext.request.contextPath}/blogs?page=${currentPage + 1}" class="page-link" aria-label="Next">
-                                    <span aria-hidden="true">»</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>-->
-
-<div class="col-md-12">
-    <ul class="pages">
-        <c:forEach var="i" begin="1" end="${noOfPages}">
-            <li class="<c:if test='${currentPage == i}'>active</c:if>">
-                <a href="${pageContext.request.contextPath}/blogs?page=${i}">${i}</a>
-            </li>
-        </c:forEach>
-        <!-- Example of a next page link (assuming you have a way to calculate next page) -->
-        <!-- Replace this with your actual logic -->
-        <li>
-            <a href="${pageContext.request.contextPath}/blogs?page=${currentPage + 1}">
-                <i class="fa fa-angle-double-right"></i>
-            </a>
-        </li>
-    </ul>
-</div>
-
             </div>
-            </div>
-        </section>
+        </div>
+    </section>
+
         <!-- End blog-posts Area -->
 
         <footer>

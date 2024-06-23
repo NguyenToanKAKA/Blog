@@ -61,7 +61,7 @@
 
                             <li class="nav-item"><a class="nav-link" href="about-us.jsp">About us</a></li>
 
-                            <li class="nav-item"><a class="nav-link" href="blog.jsp">Blog</a></li>
+                            <li class="nav-item"><a class="nav-link" href="blogs">Blog</a></li>
 
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">More</a>
@@ -70,6 +70,13 @@
                                     <a class="dropdown-item" href="team.jsp">Team</a>
                                     <a class="dropdown-item" href="testimonials.jsp">Testimonials</a>
                                     <a class="dropdown-item" href="terms.jsp">Terms</a>
+                                    <c:choose>
+                                            <c:when test="${sessionScope.account != null}">
+                                                <a class="dropdown-item" href="./CVSeeker">CV Profile</a>
+                                                <a class="dropdown-item" href="${pageContext.request.contextPath}/favoriteJobList">List saved job</a>
+                                                <a class="dropdown-item" href="${pageContext.request.contextPath}/managerblog">Manage Blog</a>
+                                            </c:when>
+                                        </c:choose>   
                                 </div>
                             </li>
 
